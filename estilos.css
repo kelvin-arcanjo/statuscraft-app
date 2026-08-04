@@ -14,6 +14,8 @@
     --cor-fundo: #0B0E14;
     --cor-caixas: #3f5472;
     --cor-botoes: #00E676;
+    --cor-botoes-hover: #025c28;
+    --cor-required: #920018;
 }
 
 body {
@@ -37,10 +39,74 @@ header p {
 }
 
 main {
+    max-width: 600px;
+    margin: 0 auto;
     padding: 20px;
 }
 
 form {
     display: flex;
+    flex-direction: column;
     gap: 12px;
 }
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+input, select {
+    padding: 10px;
+    border: 1px solid var(--cor-caixas);
+    border-radius: 16px;
+}
+
+input[type="submit"] {
+    background-color: var(--cor-botoes);
+    color: var(--cor-primaria);
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: var(--cor-botoes-hover);
+    color: var(--cor-texto);
+    font-weight: bold;
+}
+
+input[type="reset"] {
+    background-color: var(--cor-caixas);
+    color: var(--cor-texto);
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+input[type="reset"]:hover {
+    background-color:  #000d20;
+    color: var(--cor-texto);
+    font-weight: bold;
+}
+
+.required {
+    color: var(--cor-required);
+    font-weight: bold;
+}
+
+article {
+    background-color: var(--cor-secundaria);
+    padding: 20px;
+    border-radius: 16px;
+    margin-top: 20px;
+    box-shadow:  0 4px 12px rgba(0,0,0,0.3);
+}
+
+div#preview {
+    background-color: var(--cor-caixas);
+    padding: 12px;
+    border-radius: 10px;
+}
+
+
