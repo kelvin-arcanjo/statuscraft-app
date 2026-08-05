@@ -1,3 +1,5 @@
+//Seleção de elementos do DOM...
+
 const form = document.querySelector('form')
 const inputVideo = document.querySelector('#video')
 const select = document.querySelector('#format')
@@ -23,11 +25,12 @@ form.addEventListener('submit' , (event) => {
 form.addEventListener('reset' , () => {
     preview.textContent = 'A pré-visualização aparecerá aqui.'
 
-    inputVideo.classList.remove('invalido')
+    inputVideo.classList.remove('invalido' , 'valido')
+    select.classList.remove('invalido', 'valido')
 })
 
 inputVideo.addEventListener('input' , () => {
-    const isValid = inputVideo.checkValidity()
+    const isValid = inputVideo.checkValidity() //Validação nativa do browser...
 
     inputVideo.classList.toggle('valido' , isValid)
     inputVideo.classList.toggle('invalido' , !isValid)
