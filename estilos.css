@@ -66,6 +66,15 @@ input, select {
     border-radius: 16px;
 }
 
+input:hover {
+    background-color: rgba(231, 219, 196, 0.815);
+}
+
+
+select:hover {
+    background-color: rgba(231, 219, 196, 0.815);
+}
+
 input[type="submit"] {
     background-color: var(--cor-botoes);
     color: var(--cor-primaria);
