@@ -8,6 +8,17 @@ const preview = document.querySelector('#preview')
 form.addEventListener('submit' , (event) => {
     event.preventDefault()
 
+    fetch('/processar' , {
+        method: 'POST',
+        headers: {
+            'Content-Type' : 'application/json'
+        },
+        body: JSON.stringify({
+            video: inputVideo.value,
+            destino: select.value
+        })
+    })
+
     if (select.value === 'whatsapp') {
         preview.textContent = 'Vídeo cortado para 30 segundos (Whatsapp Status).'
 

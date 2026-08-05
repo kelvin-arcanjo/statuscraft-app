@@ -2,6 +2,22 @@ const http = require('http')
 const fs = require('fs')
 
 const server = http.createServer((req  , res) => {
+    if (req.method === 'POST' && req.url === '/processar') {
+        let body = '';
+
+        req.on('data' , (chunk) => {
+            body += chunk
+        })
+
+        req.on('end' , () => {
+            const dados = JSON.parse(body)
+            console.log('Dados recebidos:' , dados)
+            res.end('Recebido com sucesso!')
+        })
+
+        return
+    }
+
     let filePath = '' ;
 
     if (req.url === '/') {
