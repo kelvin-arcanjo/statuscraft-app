@@ -117,4 +117,17 @@ div#preview {
     border-radius: 10px;
 }
 
+footer {
+    background-color: var(--cor-fundo);
+    padding: 20px;
+    text-align: center;
+    color: var(--cor-secundaria);
+    font-size: 0.9rem;
+    margin-top: 40px; /* Dá um espaço agradável em relação ao conteúdo */
+}
+
+footer strong {
+    color: var(--cor-texto);
+}
+
 
