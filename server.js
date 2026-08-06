@@ -2,6 +2,7 @@ const http = require('http')
 const fs = require('fs')
 
 const server = http.createServer((req  , res) => {
+    // 1. Rota para processar requisições POST do formulário;
     if (req.method === 'POST' && req.url === '/processar') {
         let body = '';
 
@@ -18,19 +19,41 @@ const server = http.createServer((req  , res) => {
         return
     }
 
+    // 2. Roteamento de ficheiros estáticos;
+
     let filePath = '' ;
 
-    if (req.url === '/') {
-        filePath = 'index.html'
+    switch (req.url) {
+        case '/':
+            filePath = 'index.html'
+            break
 
-    } else if (req.url === '/estilos.css') {
-        filePath = 'estilos.css'
+        case '/estilos.css':
+            filePath = 'estilos.css'
+            break
 
-    } else if (req.url === '/script.js') {
-        filePath = 'script.js'
+        case '/script.js':
+            filePath = 'script.js'
+            break
+
+        default:
+            //Caso tente aceder uma rota não configurada...
+            res.statusCode = 404
+            res.end('Página não encontrada!')
+
+            return
     }
 
+    // 3. Leitura e entrega dos ficheiros estáticos;
+
     fs.readFile(filePath , (err , data) => {
+        if (err) {
+            res.statusCode = 500
+            res.end('Erro interno ao ler o ficheiro.')
+
+            return
+        }
+        
         res.end(data)
     })
 })
