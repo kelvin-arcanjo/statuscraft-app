@@ -89,6 +89,12 @@ input[type="submit"]:hover {
     font-weight: bold;
 }
 
+input[type='submit']:disabled {
+    background-color: var(--cor-botoes-hover);
+    font-weight: bold;
+    cursor: not-allowed;
+}
+
 input[type="reset"] {
     background-color: #1d2736;
     color: var(--cor-texto);

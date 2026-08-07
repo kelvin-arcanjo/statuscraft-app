@@ -5,11 +5,10 @@ const { exec } = require('child_process'); // Importa o exec do child_process;
 const server = http.createServer((req  , res) => {
     // Rota para processar requisições POST do formulário;
     if (req.method === 'POST' && req.url === '/processar') {
+        
         let body = '';
 
-        req.on('data' , (chunk) => {
-            body += chunk
-        })
+        req.on('data' , (chunk) => { body += chunk })
 
         req.on('end' , () => {
             const dados = JSON.parse(body)
@@ -74,7 +73,7 @@ const server = http.createServer((req  , res) => {
             res.end('Página não encontrada!')
 
             return
-    }
+    } 
 
     //Leitura e entrega dos ficheiros estáticos;
 
